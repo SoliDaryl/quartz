@@ -15,22 +15,28 @@ public class SleepTest {
             SimpleTrigger trigger = TriggerBuilder.newTrigger()
                     .withIdentity("sleepTrigger", "sleepGroup")
                     .withSchedule(SimpleScheduleBuilder.simpleSchedule()
-                            .withIntervalInSeconds(5)
+                            .withIntervalInSeconds(10)
                             .repeatForever())
                     .build();
             scheduler.scheduleJob(sleepJob, trigger);
             scheduler.start();
 
-//            Thread.sleep(3000);
 
-            scheduler.pauseAll();
+//            scheduler.pauseAll();
 //            scheduler.pauseTrigger();
 //            Thread.sleep(3000);
+
+            TriggerKey key = new TriggerKey("sleepTrigger", "sleepGroup");
+
+            scheduler.pauseTrigger(key);
+            System.out.println(key);
+
+//            Thread.sleep(10000);
+
             scheduler.resumeAll();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
 }

@@ -1,6 +1,11 @@
 package pers.lqh.quartz;
 
+import org.python.core.PyFunction;
+import org.python.core.PyObject;
+import org.python.util.PythonInterpreter;
 import org.quartz.*;
+
+import java.time.LocalDateTime;
 
 @PersistJobDataAfterExecution
 @DisallowConcurrentExecution
@@ -14,60 +19,35 @@ public class SleepCase implements Job {
         init();
         start1();
 
-//        while(!stop){
-////            if(count==50) stop=true;
-////            start1();
-//            if(count==50){
-//                try {
-//                    System.out.println("睡眠");
-//                    Thread.sleep(10000);
-//
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        }
 
-//        try {
-//            Thread.sleep(10000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
+        destroy1();
 
-//        try {
-//            this.wait();
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-
-//        while(count<200){
-//            start1();
-//        }
-
-        while(true){
-            start1();
-        }
-//        destroy1();
-
-//        System.out.println("----------------------------------");
+        System.out.println("----------------------------------");
     }
 
-//    SleepCase(){
-//        System.out.println("================构造函数================");
-//    }
-
     private void init() {
-        System.out.println("===============调用初始化方法=================");
+        System.out.printf("===============调用初始化方法:%s=================\r\n", LocalDateTime.now());
     }
 
     private synchronized void start1() {
+        System.out.printf("==============开始执行业务方法%s============\r\n", LocalDateTime.now());
+        PythonInterpreter pi = new PythonInterpreter();
+        String s = System.getProperty("user.dir") + "/pytest1.py";
+
+        pi.execfile(s);
+        PyFunction pf = pi.get("hello",PyFunction.class);
+        PyObject pyObject = pf.__call__();
+        System.out.println(pyObject);
+        System.out.printf("==============%s%s============\r\n", pyObject,LocalDateTime.now());
+
         count++;
-        System.out.println("==============执行业务方法============执行次数为:" + count);
+        System.out.printf("==============业务方法执行结束：%s，次数为：%s============\r\n", LocalDateTime.now(),count);
+
     }
 
     private void destroy1() {
         count = 0;
-        System.out.println("===============销毁============");
+        System.out.printf("===============销毁:%s============\r\n", LocalDateTime.now());
     }
 
 }
