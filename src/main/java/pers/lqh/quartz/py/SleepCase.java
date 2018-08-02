@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @DisallowConcurrentExecution
 public class SleepCase implements Job
 {
-    static final String[] shareObj = {"true"};
+    static final boolean[] shareObj = {false};
     private int count;
     private boolean stop = false;
 
@@ -36,28 +36,17 @@ public class SleepCase implements Job
 
         test("pytest1.py", "test1");
 
-/*        try
-        {
-            System.out.println("##################在3s后执行下一个脚本##################");
-//            Thread.sleep(3000);
-            this.wait();
-        }
-        catch (InterruptedException e)
-        {
-            e.printStackTrace();
-        }*/
-
         test("pytest2.py", "test2");
 
         count++;
-        System.out.printf("%s:++++++++++++++++业务方法执行结束：%s，次数为++++++++++++++++\r\n", LocalDateTime.now(), count);
+        System.out.printf("%s:++++++++++++++++业务方法执行结束，次数为：%s++++++++++++++++\r\n", LocalDateTime.now(), count);
 
 
     }
 
     private void destroy1()
     {
-        count = 0;
+//        count = 0;
         System.out.printf("%s:===============销毁============\r\n", LocalDateTime.now());
     }
 
@@ -87,7 +76,7 @@ public class SleepCase implements Job
 //        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         synchronized (shareObj)
         {
-            while("true".equals(shareObj[0])){
+            while(shareObj[0]){
                 try
                 {
                     System.out.println("开始等待!");
@@ -100,10 +89,4 @@ public class SleepCase implements Job
             }
         }
     }
-
-    private void sleep()
-    {
-
-    }
-
 }

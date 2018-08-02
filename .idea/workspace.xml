@@ -1,34 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="733e5199-19dc-4a7f-a052-966acce83223" name="Default" comment="添加调用py脚本测试">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pers/lqh/quartz/py/Notify.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pers/lqh/quartz/py/SleepCase.java" afterDir="false" />
+    <list default="true" id="733e5199-19dc-4a7f-a052-966acce83223" name="Default" comment="测试了使用wait和notify实现循环中单一任务暂停与继续">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pytest1.py" beforeDir="false" afterPath="$PROJECT_DIR$/pytest1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pytest2.py" beforeDir="false" afterPath="$PROJECT_DIR$/pytest2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pers/lqh/quartz/ACase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pers/lqh/quartz/test/ACase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pers/lqh/quartz/BCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pers/lqh/quartz/test/BCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pers/lqh/quartz/BaseJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pers/lqh/quartz/test/BaseJob.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pers/lqh/quartz/Invoke.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pers/lqh/quartz/test/Invoke.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pers/lqh/quartz/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pers/lqh/quartz/test/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pers/lqh/quartz/MyJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pers/lqh/quartz/test/MyJob.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pers/lqh/quartz/MyJob2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pers/lqh/quartz/test/MyJob2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pers/lqh/quartz/QuartzCronTiggerJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pers/lqh/quartz/test/QuartzCronTiggerJob.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pers/lqh/quartz/SleepCase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pers/lqh/quartz/SleepTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pers/lqh/quartz/py/SleepTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pers/lqh/quartz/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pers/lqh/quartz/test/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pers/lqh/quartz/ACase.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pers/lqh/quartz/BCase.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pers/lqh/quartz/BaseJob.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pers/lqh/quartz/Invoke.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pers/lqh/quartz/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pers/lqh/quartz/MyJob.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pers/lqh/quartz/MyJob2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pers/lqh/quartz/QuartzCronTiggerJob.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pers/lqh/quartz/Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pers/lqh/quartz/py/SleepCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pers/lqh/quartz/py/SleepCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pers/lqh/quartz/py/SleepTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pers/lqh/quartz/py/SleepTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -64,18 +40,18 @@
         <counts>
           <entry key="class" value="1" />
           <entry key="dummy" value="2" />
-          <entry key="java" value="3913" />
+          <entry key="java" value="4127" />
           <entry key="md" value="351" />
           <entry key="py" value="70" />
-          <entry key="txt" value="32" />
+          <entry key="txt" value="69" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CLASS" value="1" />
-          <entry key="JAVA" value="3913" />
+          <entry key="JAVA" value="4127" />
           <entry key="Markdown" value="351" />
-          <entry key="PLAIN_TEXT" value="35" />
+          <entry key="PLAIN_TEXT" value="72" />
           <entry key="Python" value="69" />
         </counts>
       </usages-collector>
@@ -83,7 +59,7 @@
         <counts>
           <entry key="class" value="25" />
           <entry key="iml" value="1" />
-          <entry key="java" value="33" />
+          <entry key="java" value="35" />
           <entry key="md" value="2" />
           <entry key="py" value="4" />
           <entry key="xml" value="1" />
@@ -93,7 +69,7 @@
         <counts>
           <entry key="CLASS" value="25" />
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="33" />
+          <entry key="JAVA" value="35" />
           <entry key="Markdown" value="2" />
           <entry key="PLAIN_TEXT" value="2" />
           <entry key="Python" value="2" />
@@ -106,32 +82,42 @@
     <favorites_list name="quartz" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pers/lqh/quartz/py/SleepTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="517">
-              <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="209">
-                <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5272145">
+      <split-first>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/pers/lqh/quartz/py/SleepCase.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="437">
+                  <caret line="59" column="15" lean-forward="true" selection-start-line="59" selection-start-column="15" selection-end-line="59" selection-end-column="15" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/pers/lqh/quartz/py/SleepTest.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1349">
+                  <caret line="71" column="23" selection-start-line="71" selection-start-column="23" selection-end-line="71" selection-end-column="23" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#1894#1895#0" expanded="true" />
+                    <element signature="e#1938#1939#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -175,9 +161,9 @@
         <option value="$PROJECT_DIR$/src/main/java/pers/lqh/quartz/SleepTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/pers/lqh/quartz/SleepCase.java" />
         <option value="$PROJECT_DIR$/src/main/java/pers/lqh/quartz/py/Notify.java" />
+        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/main/java/pers/lqh/quartz/py/SleepCase.java" />
         <option value="$PROJECT_DIR$/src/main/java/pers/lqh/quartz/py/SleepTest.java" />
-        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -260,7 +246,7 @@
     <property name="SearchEverywhereHistoryKey" value="Object&#9;PSI&#9;JAVA://java.lang.Object&#10;getTriggerKey&#9;PSI&#9;JAVA://org.quartz.core.RemotableQuartzScheduler#getTriggerKeys&#10;ScheduleBuilder&#9;PSI&#9;JAVA://org.quartz.ScheduleBuilder" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1533199610384" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1533201099612" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../test" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="project.structure.last.edited" value="SDKs" />
@@ -413,7 +399,7 @@
       <workItem from="1533176215825" duration="384000" />
       <workItem from="1533176931142" duration="94000" />
       <workItem from="1533177273544" duration="293000" />
-      <workItem from="1533177594409" duration="13041000" />
+      <workItem from="1533177594409" duration="14530000" />
     </task>
     <task id="LOCAL-00001" summary="添加了项目的web支持">
       <created>1532316012443</created>
@@ -436,11 +422,18 @@
       <option name="project" value="LOCAL" />
       <updated>1533180199825</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="测试了使用wait和notify实现循环中单一任务暂停与继续">
+      <created>1533199689931</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1533199689931</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58022000" />
+    <option name="totallyTimeSpent" value="59511000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -464,13 +457,13 @@
       <window_info id="Web" order="6" side_tool="true" weight="0.32977587" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32972974" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.8064865" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.7718919" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.5481081" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32972974" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4994664" weight="0.66486484" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50053364" side_tool="true" weight="0.32972974" />
       <window_info anchor="bottom" id="Messages" order="9" weight="0.32864866" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32972974" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.32972974" />
@@ -502,7 +495,8 @@
     <MESSAGE value="添加了项目的web支持" />
     <MESSAGE value="添加测试暂停全部功能" />
     <MESSAGE value="添加调用py脚本测试" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加调用py脚本测试" />
+    <MESSAGE value="测试了使用wait和notify实现循环中单一任务暂停与继续" />
+    <option name="LAST_COMMIT_MESSAGE" value="测试了使用wait和notify实现循环中单一任务暂停与继续" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -521,7 +515,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/pers/lqh/quartz/py/SleepCase.java</url>
-          <line>66</line>
+          <line>55</line>
           <properties />
           <option name="timeStamp" value="19" />
         </line-breakpoint>
@@ -816,10 +810,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="228">
+            <caret line="12" column="3" lean-forward="true" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pers/lqh/quartz/py/SleepCase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="90" column="19" lean-forward="true" selection-start-line="90" selection-start-column="19" selection-end-line="90" selection-end-column="19" />
+        <state relative-caret-position="437">
+          <caret line="59" column="15" lean-forward="true" selection-start-line="59" selection-start-column="15" selection-end-line="59" selection-end-column="15" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -828,21 +832,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pers/lqh/quartz/py/SleepTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
+        <state relative-caret-position="1349">
+          <caret line="71" column="23" selection-start-line="71" selection-start-column="23" selection-end-line="71" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1894#1895#0" expanded="true" />
+            <element signature="e#1938#1939#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="209">
-            <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>

@@ -20,7 +20,7 @@ public class SleepTest
             SimpleTrigger trigger = TriggerBuilder.newTrigger()
                     .withIdentity("sleepTrigger", "sleepGroup")
                     .withSchedule(SimpleScheduleBuilder.simpleSchedule()
-                            .withIntervalInSeconds(40)
+                            .withIntervalInSeconds(250)
                             .repeatForever())
                     .build();
             scheduler.scheduleJob(sleepJob, trigger);
@@ -39,22 +39,37 @@ public class SleepTest
                 while (true)
                 {
                     Scanner s = new Scanner(System.in);
-                    System.out.println("请输入0或1:");
+                    System.out.print("请输入0或1:");
                     String rs = s.next();
-                    if ("1".equals(rs))
+                    if ("0".equals(rs))
                     {
-                        noti();
+                        try
+                        {
+                            System.out.println("执行暂停!");
+                            scheduler.pauseTrigger(key);
+                            SleepTest.pause();
+                        }
+                        catch (SchedulerException e)
+                        {
+                            e.printStackTrace();
+                        }
+                    }
+                    else if ("1".equals(rs))
+                    {
+                        try
+                        {
+                            System.out.println("继续任务!");
+                            SleepTest.noti();
+                            scheduler.resumeTrigger(key);
+                            System.out.println("等待结束!");
+                        }
+                        catch (SchedulerException e)
+                        {
+                            e.printStackTrace();
+                        }
                     }
                 }
             }).start();
-
-//            Thread.sleep(10000);
-
-//            SleepCase.shareObj[0] = "false";
-
-//            Thread.sleep(10000);
-
-
         }
         catch (Exception e)
         {
@@ -62,20 +77,19 @@ public class SleepTest
         }
     }
 
-    static void stop(){
-
+    static void pause()
+    {
+        SleepCase.shareObj[0] = true;
     }
 
     static void noti()
     {
         synchronized (SleepCase.shareObj)
         {
-            SleepCase.shareObj[0] = "false";
+            SleepCase.shareObj[0] = false;
             //            scheduler.resumeAll();
 
             SleepCase.shareObj.notifyAll();
-            System.out.println("等待结束!");
-
         }
     }
 }
