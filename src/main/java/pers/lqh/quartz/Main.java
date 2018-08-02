@@ -2,24 +2,36 @@ package pers.lqh.quartz;
 
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
-import org.quartz.impl.triggers.CronTriggerImpl;
 
 import java.text.ParseException;
 
 public class Main {
     public static void main(String[] args) {
+//        try {
 //            cronTrigger();
-            testMyJob();
+//        } catch (SchedulerException | ParseException e) {
+//            e.printStackTrace();
+//        }
+        testMyJob();
     }
 
     private static void cronTrigger() throws SchedulerException, ParseException {
 
         SchedulerFactory schedulerFactory = new StdSchedulerFactory();
         Scheduler scheduler = schedulerFactory.getScheduler();
+        Scheduler scheduler2 = schedulerFactory.getScheduler();
 
-        JobDetail jobDetail = JobBuilder.
+        System.out.println(scheduler + ":" + scheduler2);
+
+
+        JobDetail jobDetail1 = JobBuilder.
                 newJob(MyJob.class).
-                withIdentity("cronTriggerDetail", "cronTriggerDetailGrounp").
+                withIdentity("cronTriggerDetail1", "cronTriggerDetailGrounp").
+                build();
+
+        JobDetail jobDetail2 = JobBuilder.
+                newJob(ACase.class).
+                withIdentity("cronTriggerDetail2", "cronTriggerDetailGrounp").
                 build();
 
         String cronExpression = "30/5 * * * * ?"; // 每分钟的30s起，每5s触发任务
@@ -32,50 +44,52 @@ public class Main {
                 withSchedule(CronScheduleBuilder.cronSchedule(cronExpression)). //在任务调度器中，使用任务调度器的 CronScheduleBuilder 来生成一个具体的 CronTrigger 对象
                 build();
 
-        scheduler.scheduleJob(jobDetail, cronTrigger);
+        scheduler.scheduleJob(jobDetail1, cronTrigger);
+//        scheduler.scheduleJob(jobDetail2, cronTrigger);
 
         scheduler.start();
 
     }
 
-    private static void testMyJob(){
+    private static void testMyJob() {
         Scheduler s = null;
         try {
             s = StdSchedulerFactory.getDefaultScheduler();
-            s.start();
+//            s.start();
         } catch (SchedulerException e) {
             s = null;
             e.printStackTrace();
         }
         if (s != null) {
 
-            JobDetail jd = JobBuilder.newJob(ACase.class)
+            JobDetail jd2 = JobBuilder.newJob(BCase.class)
                     .withIdentity("job1", "group1")
                     .build();
 
-            Trigger trigger = TriggerBuilder.newTrigger()
+            Trigger trigger2 = TriggerBuilder.newTrigger()
                     .withIdentity("trigger1", "group1")
-                    .startNow()
+//                    .startNow()
                     .withSchedule(SimpleScheduleBuilder.simpleSchedule()
                             .withIntervalInSeconds(1)
                             .repeatForever())
                     .build();
 
-            JobDetail jd2 = JobBuilder.newJob(BCase.class)
+            JobDetail jd = JobBuilder.newJob(ACase.class)
                     .withIdentity("job2", "group1")
                     .build();
 
-            Trigger trigger2 = TriggerBuilder.newTrigger()
+            Trigger trigger = TriggerBuilder.newTrigger()
                     .withIdentity("trigger2", "group1")
-                    .startNow()
+//                    .startNow()
                     .withSchedule(SimpleScheduleBuilder.simpleSchedule()
-                            .withIntervalInSeconds(3)
+                            .withIntervalInSeconds(1)
                             .repeatForever())
                     .build();
 
             try {
                 s.scheduleJob(jd, trigger);
                 s.scheduleJob(jd2, trigger2);
+                s.start();
 
 //                long i = 0;
 //                while(true){

@@ -12,12 +12,12 @@ public class Test {
             //定义当前调度器的具体作业对象
             JobDetail jobDetail = JobBuilder.
                     newJob(QuartzCronTiggerJob.class).
-                    withIdentity("cronTriggerDetail", "cronTriggerDetailGrounp").
+                    withIdentity("cronTriggerDetail", "cronTriggerDetailGroup").
                     build();
             //定义当前具体作业对象的参数
             JobDataMap jobDataMap = jobDetail.getJobDataMap();
             jobDataMap.put("name", "cronTriggerMap");
-            jobDataMap.put("group", "cronTriggerGrounp");
+            jobDataMap.put("group", "cronTriggerGroup");
 
             //作业的触发器
             CronTrigger cronTrigger = TriggerBuilder.//和之前的 SimpleTrigger 类似，现在的 CronTrigger 也是一个接口，通过 Tribuilder 的 build()方法来实例化

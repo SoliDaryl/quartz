@@ -3,6 +3,7 @@ package pers.lqh.quartz;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
+import org.quartz.StatefulJob;
 
 public class QuartzCronTiggerJob implements Job {
     @Override
