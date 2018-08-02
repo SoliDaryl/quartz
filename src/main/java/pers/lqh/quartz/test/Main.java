@@ -1,4 +1,4 @@
-package pers.lqh.quartz;
+package pers.lqh.quartz.test;
 
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;

@@ -1,11 +1,7 @@
-package pers.lqh.quartz;
+package pers.lqh.quartz.test;
 
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
-import org.quartz.JobExecutionException;
-
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
 
 public abstract class BaseJob implements Job,Invoke {
 

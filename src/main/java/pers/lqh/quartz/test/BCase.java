@@ -1,4 +1,4 @@
-package pers.lqh.quartz;
+package pers.lqh.quartz.test;
 
 public class BCase extends BaseJob {
     @Override

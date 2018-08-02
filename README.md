@@ -10,3 +10,4 @@ quartz是用于定时调度控制的插件 结合时间表达式使用可以完�
 //其中withSchedule()方法设置的参数为不同的计划生成器,为ScheduleBuilder的子类,其有三个子类
 //1)SimpleScheduleBuilder:可以设置间隔时分秒执行,同时设置执行次数或重复执行
 //2)CalendarIntervalScheduleBuilder:日历间隔生成器,可以设置day, week, month, year属性
+//3
