@@ -13,14 +13,20 @@ public class SleepTest
         {
             Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
 
+//            JobDataMap jobDataMap = new JobDataMap();
+//            jobDataMap.put("lock", new Boolean[]{true});
+
             JobDetail sleepJob = JobBuilder.newJob(SleepCase.class)
                     .withIdentity("sleepThread", "sleepGroup")
+                    .usingJobData("num", 3)
+                    .usingJobData("lockName", "lock1")
                     .build();
+
 
             SimpleTrigger trigger = TriggerBuilder.newTrigger()
                     .withIdentity("sleepTrigger", "sleepGroup")
                     .withSchedule(SimpleScheduleBuilder.simpleSchedule()
-                            .withIntervalInSeconds(250)
+                            .withIntervalInSeconds(40)
                             .repeatForever())
                     .build();
             scheduler.scheduleJob(sleepJob, trigger);
@@ -39,7 +45,7 @@ public class SleepTest
                 while (true)
                 {
                     Scanner s = new Scanner(System.in);
-                    System.out.print("请输入0或1:");
+                    System.out.println("请输入0或1:");
                     String rs = s.next();
                     if ("0".equals(rs))
                     {
@@ -79,17 +85,19 @@ public class SleepTest
 
     static void pause()
     {
-        SleepCase.shareObj[0] = true;
+        JobLock.lockMap.get("lock1")[0] = true;
+//        SleepCase.shareObj[0] = true;
     }
 
     static void noti()
     {
-        synchronized (SleepCase.shareObj)
+        synchronized (JobLock.lockMap.get("lock1"))
         {
-            SleepCase.shareObj[0] = false;
-            //            scheduler.resumeAll();
-
-            SleepCase.shareObj.notifyAll();
+            if (JobLock.lockMap.get("lock1")[0])
+            {
+                JobLock.lockMap.get("lock1")[0] = false;
+                JobLock.lockMap.get("lock1").notify();
+            }
         }
     }
 }
