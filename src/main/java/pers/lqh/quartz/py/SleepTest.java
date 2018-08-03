@@ -4,6 +4,7 @@ import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
 
 import java.util.Scanner;
+import java.util.UUID;
 
 public class SleepTest
 {
@@ -13,15 +14,12 @@ public class SleepTest
         {
             Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
 
-//            JobDataMap jobDataMap = new JobDataMap();
-//            jobDataMap.put("lock", new Boolean[]{true});
-
+            String lockName = String.valueOf(UUID.randomUUID());
             JobDetail sleepJob = JobBuilder.newJob(SleepCase.class)
                     .withIdentity("sleepThread", "sleepGroup")
                     .usingJobData("num", 3)
-                    .usingJobData("lockName", "lock1")
+                    .usingJobData("lockName", lockName)
                     .build();
-
 
             SimpleTrigger trigger = TriggerBuilder.newTrigger()
                     .withIdentity("sleepTrigger", "sleepGroup")
@@ -32,13 +30,7 @@ public class SleepTest
             scheduler.scheduleJob(sleepJob, trigger);
             scheduler.start();
 
-//            scheduler.pauseAll();
-//            Thread.sleep(3000);
-
             TriggerKey key = new TriggerKey("sleepTrigger", "sleepGroup");
-
-//            scheduler.pauseTrigger(key);
-//            System.out.println(key);
 
             new Thread(() ->
             {
@@ -53,7 +45,7 @@ public class SleepTest
                         {
                             System.out.println("执行暂停!");
                             scheduler.pauseTrigger(key);
-                            SleepTest.pause();
+                            JobLock.pause(lockName);
                         }
                         catch (SchedulerException e)
                         {
@@ -65,7 +57,7 @@ public class SleepTest
                         try
                         {
                             System.out.println("继续任务!");
-                            SleepTest.noti();
+                            JobLock.noti(lockName);
                             scheduler.resumeTrigger(key);
                             System.out.println("等待结束!");
                         }
@@ -83,21 +75,4 @@ public class SleepTest
         }
     }
 
-    static void pause()
-    {
-        JobLock.lockMap.get("lock1")[0] = true;
-//        SleepCase.shareObj[0] = true;
-    }
-
-    static void noti()
-    {
-        synchronized (JobLock.lockMap.get("lock1"))
-        {
-            if (JobLock.lockMap.get("lock1")[0])
-            {
-                JobLock.lockMap.get("lock1")[0] = false;
-                JobLock.lockMap.get("lock1").notify();
-            }
-        }
-    }
 }

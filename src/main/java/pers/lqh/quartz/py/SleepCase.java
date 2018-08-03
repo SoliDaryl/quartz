@@ -11,10 +11,9 @@ import java.time.LocalDateTime;
 @DisallowConcurrentExecution
 public class SleepCase implements Job
 {
-    static final boolean[] shareObj = {false};
+//    static final boolean[] shareObj = {false};
     private int count;
     private boolean stop = false;
-    private Boolean[] lock = null;
     private String lockName;
 
     @Override
@@ -26,7 +25,6 @@ public class SleepCase implements Job
         int num = jobDataMap.getIntValue("num");
         lockName = jobDataMap.getString("lockName");
         init();
-        lock = (Boolean[]) jobDataMap.get("lock");
 
         start1(num);
         destroy1();
@@ -37,32 +35,31 @@ public class SleepCase implements Job
     {
         System.out.println();
         System.out.printf("%s:===============调用初始化方法===============\r\n", LocalDateTime.now());
-        JobLock.lockMap.put(lockName, new Boolean[]{false});
+        JobLock.lockMap.put(lockName, new Boolean[]{false,false});
     }
 
     private void start1(int num)
     {
         System.out.printf("%s:++++++++++++++++开始执行业务方法++++++++++++++++\r\n", LocalDateTime.now());
 
-//        int i = 0;
-
-
         for (int i = 0; i < num; i++)
         {
             System.out.println("当前for循环i为:" + i);
 
-            synchronized (JobLock.lockMap.get("lock1"))
+            synchronized (JobLock.lockMap.get(lockName))
             {
-                while (JobLock.lockMap.get("lock1")[0])
+                while (JobLock.lockMap.get(lockName)[0])
                 {
                     try
                     {
                         System.out.println("开始等待!");
 //                    shareObj.wait();
-                        JobLock.lockMap.get("lock1").wait();
+                        JobLock.lockMap.get(lockName)[1] = true;
+                        JobLock.lockMap.get(lockName).wait();
                     }
                     catch (InterruptedException e)
                     {
+                        JobLock.lockMap.get(lockName)[1] = false;
                         e.printStackTrace();
                     }
                 }
